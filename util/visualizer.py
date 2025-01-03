@@ -41,9 +41,9 @@ def save_images(webpage, visuals, image_path, aspect_ratio=1.0, width=256, f_nam
         save_path = os.path.join(image_dir, image_name)
         h, w, _ = im.shape
         if aspect_ratio > 1.0:
-            im = cv2.resize(im, (h, int(w * aspect_ratio)), interp='bicubic')
+            im = cv2.resize(im, (h, int(w * aspect_ratio)))
         if aspect_ratio < 1.0:
-            im = cv2.resize(im, (int(h / aspect_ratio), w), interp='bicubic')
+            im = cv2.resize(im, (int(h / aspect_ratio), w))
         util.save_image(im, save_path)
 
         ims.append(image_name)
